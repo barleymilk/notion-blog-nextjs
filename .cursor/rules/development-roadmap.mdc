@@ -1,0 +1,199 @@
+---
+description: 노션 블로그 개발 로드맵
+globs: 
+alwaysApply: false
+---
+---
+description: 노션 블로그 개발 로드맵
+alwaysApply: false
+---
+# 노션 블로그 개발 로드맵
+
+## Phase 1: 프로젝트 초기 설정 (1주차)
+
+### 1.1 개발 환경 구축
+1. Next.js 프로젝트 생성
+```bash
+npx create-next-app@latest notion-blog --typescript --tailwind --app --src-dir --import-alias "@/*"
+```
+
+2. 기본 패키지 설치
+```bash
+npm install @notionhq/client @radix-ui/react-icons class-variance-authority clsx tailwind-merge lucide-react @giscus/react
+```
+
+3. 개발 도구 설정
+- ESLint 설정 파일 (.eslintrc.json) 구성
+- Prettier 설정 (.prettierrc) 구성
+- TypeScript 설정 (tsconfig.json) 최적화
+- Git 설정 (.gitignore 구성)
+
+### 1.2 프로젝트 구조 설정
+1. 디렉토리 구조 생성
+```
+src/
+├── app/
+├── components/
+│   ├── ui/
+│   ├── layout/
+│   └── blog/
+├── lib/
+│   ├── utils/
+│   └── config/
+├── types/
+└── styles/
+```
+
+2. 환경 변수 설정
+- `.env.local` 파일 생성
+- `.env.example` 템플릿 작성
+
+## Phase 2: UI 기반 구축 (2주차)
+
+### 2.1 기본 레이아웃 구현
+1. ShadcnUI 설정
+```bash
+npx shadcn-ui@latest init
+```
+
+2. 공통 컴포넌트 구현
+- Header 컴포넌트
+- Footer 컴포넌트
+- Navigation 컴포넌트
+- ThemeToggle 컴포넌트
+
+3. 레이아웃 구현
+- RootLayout 구성
+- 반응형 레이아웃 설정
+- 다크모드 설정
+
+### 2.2 핵심 UI 컴포넌트 개발
+1. 블로그 관련 컴포넌트
+- PostCard 컴포넌트
+- PostList 컴포넌트
+- TagList 컴포넌트
+- CategoryList 컴포넌트
+
+2. 공통 UI 컴포넌트
+- Button 컴포넌트
+- Input 컴포넌트
+- Card 컴포넌트
+- Badge 컴포넌트
+
+## Phase 3: Notion API 연동 (3주차)
+
+### 3.1 Notion 설정
+1. Notion API 설정
+- Notion 통합 생성
+- API 키 발급
+- 데이터베이스 템플릿 설정
+
+2. Notion 클라이언트 구현
+```typescript
+// src/lib/notion/client.ts 생성
+```
+
+### 3.2 데이터 페칭 구현
+1. 데이터 타입 정의
+```typescript
+// src/types/notion.ts 생성
+```
+
+2. API 래퍼 함수 구현
+- getPostList 함수
+- getPostBySlug 함수
+- getCategories 함수
+- getTags 함수
+
+## Phase 4: 페이지 구현 (4주차)
+
+### 4.1 메인 페이지 구현
+1. 홈페이지 레이아웃
+- 최신 글 목록
+- 카테고리 네비게이션
+- 인기 태그 클라우드
+
+2. 페이지네이션 구현
+- 커스텀 페이지네이션 컴포넌트
+- 무한 스크롤 구현
+
+### 4.2 블로그 포스트 페이지
+1. 마크다운 렌더링 설정
+```bash
+npm install react-markdown rehype-raw rehype-highlight
+```
+
+2. 포스트 상세 페이지 구현
+- 마크다운 스타일링
+- 코드 하이라이팅
+- 목차(TOC) 컴포넌트
+
+## Phase 5: 부가 기능 구현 (5주차)
+
+### 5.1 검색 기능
+1. 검색 컴포넌트 구현
+- 검색 입력 UI
+- 검색 결과 표시
+- 필터링 로직
+
+2. 태그/카테고리 필터링
+- 필터 컴포넌트
+- 필터링 로직
+
+### 5.2 댓글 시스템
+1. Giscus 설정
+- GitHub Discussions 설정
+- Giscus 컴포넌트 구현
+
+2. 댓글 영역 구현
+- 댓글 컨테이너
+- 로딩 상태
+- 에러 처리
+
+## Phase 6: 최적화 및 배포 (6주차)
+
+### 6.1 성능 최적화
+1. 이미지 최적화
+- next/image 설정
+- 이미지 로딩 전략
+
+2. SEO 최적화
+- metadata 설정
+- robots.txt 생성
+- sitemap.xml 생성
+
+### 6.2 배포 준비
+1. 빌드 최적화
+- 빌드 스크립트 구성
+- 환경 변수 설정
+
+2. 배포 설정
+- Vercel 배포 설정
+- 도메인 연결
+- 분석 도구 설정
+
+## Phase 7: 테스트 및 문서화 (7주차)
+
+### 7.1 테스트
+1. 단위 테스트 구현
+```bash
+npm install --save-dev jest @testing-library/react @testing-library/jest-dom
+```
+
+2. E2E 테스트 구현
+```bash
+npm install --save-dev cypress
+```
+
+### 7.2 문서화
+1. README 작성
+- 프로젝트 설명
+- 설치 가이드
+- 환경 설정 가이드
+
+2. 사용자 가이드 작성
+- 포스팅 가이드
+- 관리자 가이드
+
+각 단계는 순차적으로 진행되며, 각 phase가 완료될 때마다 코드 리뷰와 테스트를 진행하여 품질을 관리합니다. 또한, 각 단계에서 발생하는 이슈와 개선사항을 지속적으로 기록하고 반영합니다.
+
