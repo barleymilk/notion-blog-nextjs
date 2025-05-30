@@ -4,6 +4,5 @@
     "source.fixAll": "explicit"
   },
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "tabSize": 2
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
