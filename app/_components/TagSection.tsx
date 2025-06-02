@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
-import { NotionTag } from '@/types/notion';
+import { NotionTag } from '@/types/blog';
 
 interface TagSectionProps {
   tags: NotionTag[];
