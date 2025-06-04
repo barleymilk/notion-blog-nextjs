@@ -23,7 +23,7 @@ interface TocEntry {
   children?: Array<TocEntry>;
 }
 
-type Toc = Array<TocEntry>;
+// type Toc = Array<TocEntry>;
 
 interface BlogPostProps {
   params: Promise<{ slug: string }>;
