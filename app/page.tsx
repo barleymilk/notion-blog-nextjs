@@ -18,7 +18,9 @@ interface HomeProps {
 
 export default async function Home({ searchParams }: HomeProps) {
   const selectedTag = (await searchParams).tag || '전체';
-  const [posts, tags] = await Promise.all([getPublishedPosts(selectedTag), getTags()]);
+  // const [posts, tags] = await Promise.all([getPublishedPosts(selectedTag), getTags()]);
+  const posts = await getPublishedPosts(selectedTag);
+  const tags = await getTags(posts);
 
   return (
     <div className="container py-8">
