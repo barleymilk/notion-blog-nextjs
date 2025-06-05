@@ -66,7 +66,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
     <div className="container py-12">
       <div className="grid grid-cols-[240px_1fr_240px] gap-8">
         <aside>{/* 추후 콘텐츠 추가 */}</aside>
-        <section className="mx-auto w-full max-w-[657.82px]">
+        <section className="mx-auto w-full">
           {/* 블로그 헤더 */}
           <div className="space-y-4">
             <div className="space-y-2">
@@ -96,7 +96,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
           <Separator className="my-8" />
 
           {/* 블로그 본문 */}
-          <div className="prose prose-neutral dark:prose-invert prose-headings:scroll-mt-[var(--header-height)] max-w-none">
+          <div className="prose prose-neutral dark:prose-invert prose-headings:scroll-mt-[var(--header-height)] max-w-prose">
             <MDXRemote
               source={markdown}
               options={{
