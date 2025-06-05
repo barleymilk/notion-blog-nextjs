@@ -1,8 +1,8 @@
-import { TagSection } from '@/app/_components/TagSection';
-import { ProfileSection } from '@/app/_components/ProfileSection';
-import { ContactSection } from '@/app/_components/ContactSection';
-import { getPublishedPosts, getTags } from '@/lib/notion';
-import HeaderSection from './_components/HeaderSection';
+import TagSection from '@/app/_components/TagSection';
+import ProfileSection from '@/app/_components/ProfileSection';
+import ContactSection from '@/app/_components/ContactSection';
+import { getTags, getPublishedPosts } from '@/lib/notion';
+import HeaderSection from '@/app/_components/HeaderSection';
 import PostList from '@/components/features/blog/PostList';
 
 interface HomeProps {
@@ -13,6 +13,7 @@ export default async function Home({ searchParams }: HomeProps) {
   const { tag, sort } = await searchParams;
   const selectedTag = tag || '전체';
   const selectedSort = sort || 'latest';
+
   const [posts, tags] = await Promise.all([
     getPublishedPosts(selectedTag, selectedSort),
     getTags(),
@@ -28,7 +29,6 @@ export default async function Home({ searchParams }: HomeProps) {
         <div className="space-y-8">
           {/* 섹션 제목 */}
           <HeaderSection selectedTag={selectedTag} />
-
           {/* 블로그 카드 그리드 */}
           <PostList posts={posts} />
         </div>

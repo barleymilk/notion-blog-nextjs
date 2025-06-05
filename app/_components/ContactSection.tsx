@@ -1,5 +1,5 @@
-import { Card, CardTitle, CardContent, CardHeader } from '@/components/ui/card';
-import { HandshakeIcon, Megaphone, BookOpen } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Megaphone, BookOpen, HandshakeIcon } from 'lucide-react';
 
 const contactItems = [
   {
@@ -33,8 +33,7 @@ const contactItems = [
     },
   },
 ];
-
-export function ContactSection() {
+export default function ContactSection() {
   return (
     <Card>
       <CardHeader>

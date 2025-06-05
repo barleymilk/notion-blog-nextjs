@@ -38,7 +38,6 @@ export default async function DocsPage({ params }: DocsPageProps) {
       </>
     );
   }
-
   return (
     <>
       <div className="space-y-4">

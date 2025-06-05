@@ -1,7 +1,7 @@
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import Image from 'next/image';
 import { Youtube, Github, BookOpen, Instagram } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
 
 const socialLinks = [
   {
@@ -21,8 +21,7 @@ const socialLinks = [
     href: 'https://www.instagram.com/gymcoding',
   },
 ];
-
-export function ProfileSection() {
+export default function ProfileSection() {
   return (
     <Card>
       <CardContent className="pt-6">
@@ -31,18 +30,18 @@ export function ProfileSection() {
             <div className="bg-muted rounded-full p-2">
               <div className="h-36 w-36 overflow-hidden rounded-full">
                 <Image
-                  src="/images/profile-light.webp"
-                  alt="짐코딩"
+                  src="/images/kedibone-isaac-makhumisane-BprwjNPX2Vk-unsplash-mini.jpg"
+                  alt="barleymilk"
                   width={144}
                   height={144}
-                  className="object-cover"
+                  className="h-full w-full object-cover"
                 />
               </div>
             </div>
           </div>
 
           <div className="text-center">
-            <h3 className="text-lg font-bold">짐코딩</h3>
+            <h3 className="text-lg font-bold">이효주</h3>
             <p className="text-primary text-sm">Full Stack Developer</p>
           </div>
 

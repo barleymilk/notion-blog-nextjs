@@ -12,16 +12,18 @@ import { useRouter, useSearchParams } from 'next/navigation';
 export default function SortSelect() {
   const router = useRouter();
   const searchParams = useSearchParams();
+
   const sort = searchParams.get('sort') || 'latest';
 
   const handleSort = (value: string) => {
     const params = new URLSearchParams(searchParams.toString());
     params.set('sort', value);
+
     router.push(`?${params.toString()}`);
   };
 
   return (
-    <Select value={sort} defaultValue="latest" onValueChange={handleSort}>
+    <Select value={sort} onValueChange={handleSort}>
       <SelectTrigger className="w-[180px]">
         <SelectValue placeholder="정렬 방식 선택" />
       </SelectTrigger>

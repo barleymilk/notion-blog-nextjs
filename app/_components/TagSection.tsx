@@ -1,8 +1,5 @@
-'use client';
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
-import { useSearchParams, usePathname } from 'next/navigation';
 import { TagFilterItem } from '@/types/blog';
 import { cn } from '@/lib/utils';
 
@@ -11,20 +8,7 @@ interface TagSectionProps {
   selectedTag: string;
 }
 
-export function TagSection({ tags, selectedTag }: TagSectionProps) {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
-  const createPageURL = (tagName: string) => {
-    const params = new URLSearchParams(searchParams);
-    if (tagName === '전체') {
-      params.delete('tag');
-    } else {
-      params.set('tag', tagName);
-    }
-    return `${pathname}?${params.toString()}`;
-  };
-
+export default function TagSection({ tags, selectedTag }: TagSectionProps) {
   return (
     <Card>
       <CardHeader>
@@ -33,7 +17,7 @@ export function TagSection({ tags, selectedTag }: TagSectionProps) {
       <CardContent>
         <div className="flex flex-col gap-3">
           {tags.map((tag) => (
-            <Link href={createPageURL(tag.name)} key={tag.name} scroll={false} shallow={true}>
+            <Link href={`?tag=${tag.name}`} key={tag.name}>
               <div
                 className={cn(
                   'hover:bg-muted-foreground/10 text-muted-foreground flex items-center justify-between rounded-md p-1.5 text-sm transition-colors',
