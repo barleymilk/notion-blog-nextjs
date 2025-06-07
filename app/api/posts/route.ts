@@ -2,7 +2,18 @@ import { getPublishedPosts } from '@/lib/notion';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const posts = await getPublishedPosts();
+  const searchParams = request.nextUrl.searchParams;
+  const tag = searchParams.get('tag');
+  const sort = searchParams.get('sort');
+  const pageSize = searchParams.get('pageSize');
+  const startCursor = searchParams.get('startCursor');
 
-  return NextResponse.json({ posts });
+  const response = await getPublishedPosts({
+    tag,
+    sort,
+    pageSize,
+    startCursor,
+  });
+
+  return NextResponse.json(response);
 }
