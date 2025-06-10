@@ -14,6 +14,7 @@ import { compile } from '@mdx-js/mdx';
 import withSlugs from 'rehype-slug';
 import withToc from '@stefanprobst/rehype-extract-toc';
 import withTocExport from '@stefanprobst/rehype-extract-toc/mdx';
+import GiscusComments from '@/components/GicusComments';
 
 interface TocEntry {
   value: string;
@@ -111,7 +112,8 @@ export default async function BlogPost({ params }: BlogPostProps) {
           <Separator className="my-16" />
 
           {/* 이전/다음 포스트 네비게이션 */}
-          <nav className="grid grid-cols-2 gap-8">
+          <GiscusComments />
+          {/* <nav className="grid grid-cols-2 gap-8">
             <Link href="/blog/previous-post">
               <Card className="group hover:bg-muted/50 transition-colors">
                 <CardHeader>
@@ -140,7 +142,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
                 </CardHeader>
               </Card>
             </Link>
-          </nav>
+          </nav> */}
         </section>
         <aside className="relative">
           <div className="sticky top-[var(--sticky-top)]">
