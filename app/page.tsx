@@ -7,7 +7,7 @@ import { Suspense } from 'react';
 import TagSectionClient from '@/app/_components/TagSection.client';
 import PostListSkeleton from '@/components/features/blog/PostListSkeleton';
 import TagSectionSkeleton from '@/app/_components/TagSectionSkeleton';
-
+// import PostList from '@/components/features/blog/PostList';
 interface HomeProps {
   searchParams: Promise<{ tag?: string; sort?: string }>;
 }
@@ -16,9 +16,9 @@ export default async function Home({ searchParams }: HomeProps) {
   const { tag, sort } = await searchParams;
   const selectedTag = tag || '전체';
   const selectedSort = sort || 'latest';
+
   const tags = getTags();
   const postsPromise = getPublishedPosts({ tag: selectedTag, sort: selectedSort });
-
   return (
     <div className="container py-8">
       <div className="grid grid-cols-[200px_1fr_220px] gap-6">
@@ -35,6 +35,7 @@ export default async function Home({ searchParams }: HomeProps) {
           <Suspense fallback={<PostListSkeleton />}>
             <PostListSuspense postsPromise={postsPromise} />
           </Suspense>
+          {/* <PostList posts={postsPromise.posts} /> */}
         </div>
         {/* 우측 사이드바 */}
         <aside className="flex flex-col gap-6">
